@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPAS — Servicios Logísticos CPAS 2018, C.A. | Operador Portuario</title>
+<meta name="description" content="Servicios Logísticos CPAS 2018, C.A. — Agenciamiento de buques, estiba, almacenaje y acarreo de carga contenerizada en los puertos de Venezuela. Aliados de Mediterranean Shipping Company.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2a4a;
+    --blue:#1b64b0;
+    --blue-dark:#124a86;
+    --cyan:#29b6e8;
+    --gray:#5b6472;
+    --bg-alt:#f5f8fb;
+    --line:#e7edf3;
+    --white:#ffffff;
+    --radius-lg:22px;
+    --radius-pill:999px;
+    --shadow:0 24px 50px -20px rgba(15,42,74,0.25);
+    --ff-head:'Poppins', sans-serif;
+    --ff-body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:var(--ff-body);color:var(--gray);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.65;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  h1,h2,h3,h4{font-family:var(--ff-head);color:var(--navy);margin:0;line-height:1.18;}
+  p{margin:0;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
+  section{position:relative;}
+
+  .eyebrow{font-family:var(--ff-head);font-weight:600;font-size:14px;color:var(--blue);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;display:block;}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-head);font-weight:600;font-size:15px;padding:15px 30px;border-radius:var(--radius-pill);border:2px solid transparent;cursor:pointer;transition:all .25s ease;}
+  .btn svg{width:16px;height:16px;}
+  .btn-primary{background:var(--blue);color:#fff;}
+  .btn-primary:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(27,100,176,.55);}
+  .btn-outline{border-color:var(--blue);color:var(--blue);background:transparent;}
+  .btn-outline:hover{background:var(--blue);color:#fff;}
+  .btn-white{background:#fff;color:var(--blue);}
+  .btn-white:hover{background:var(--navy);color:#fff;}
+  .btn-sm{padding:11px 22px;font-size:13.5px;}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:box-shadow .3s ease, border-color .3s ease;}
+  header.scrolled{box-shadow:0 8px 30px -20px rgba(15,42,74,.4);border-color:var(--line);}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px;}
+  .brand img{height:40px;width:auto;}
+  nav.primary{display:flex;align-items:center;gap:34px;}
+  nav.primary a{font-family:var(--ff-head);font-weight:500;font-size:15px;color:var(--navy);position:relative;}
+  nav.primary a:hover{color:var(--blue);}
+  .nav-actions{display:flex;align-items:center;gap:22px;}
+  .nav-phone{display:flex;align-items:center;gap:8px;font-family:var(--ff-head);font-weight:600;font-size:14px;color:var(--navy);}
+  .nav-phone svg{width:17px;height:17px;color:var(--blue);}
+  .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px;}
+  .nav-toggle span{width:24px;height:2px;background:var(--navy);display:block;}
+
+  .hero{padding:168px 0 0;overflow:hidden;background:linear-gradient(180deg,#f5f9fc 0%, #ffffff 65%);}
+  .hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding-bottom:70px;}
+  .hero-copy .eyebrow{margin-bottom:16px;}
+  .hero-copy h1{font-size:clamp(38px,4.6vw,58px);font-weight:800;letter-spacing:-.01em;}
+  .hero-copy h1 span{display:block;font-weight:500;color:var(--blue);font-size:0.62em;margin-top:6px;}
+  .hero-copy p.lede{margin-top:22px;font-size:17px;max-width:46ch;color:var(--gray);}
+  .hero-cta{margin-top:34px;display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-media{position:relative;}
+  .hero-media img{border-radius:var(--radius-lg);box-shadow:var(--shadow);width:100%;aspect-ratio:4/3;object-fit:cover;}
+  .hero-media .float-card{position:absolute;bottom:-26px;left:-26px;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:18px 22px;display:flex;align-items:center;gap:14px;}
+  .hero-media .float-card .ico{width:44px;height:44px;border-radius:12px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .hero-media .float-card .ico svg{width:22px;height:22px;color:var(--blue);}
+  .hero-media .float-card b{display:block;font-family:var(--ff-head);color:var(--navy);font-size:20px;}
+  .hero-media .float-card span{font-size:12.5px;color:var(--gray);}
+
+  .feature-strip{margin-top:-1px;}
+  .feature-strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:44px 10px;transform:translateY(-58px);}
+  .feature{display:flex;gap:16px;padding:0 34px;border-right:1px solid var(--line);}
+  .feature:last-child{border-right:0;}
+  .feature .ico{width:52px;height:52px;border-radius:14px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .feature .ico svg{width:26px;height:26px;color:var(--blue);}
+  .feature h4{font-size:16.5px;margin-bottom:6px;}
+  .feature p{font-size:13.8px;color:var(--gray);}
+
+  .section{padding:40px 0 100px;}
+  .section.alt{background:var(--bg-alt);padding:100px 0;}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .video-frame{max-width:900px;margin:0 auto;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);background:#000;}
+  .video-frame video{width:100%;display:block;}
+  .split img{border-radius:var(--radius-lg);box-shadow:var(--shadow);width:100%;aspect-ratio:5/4;object-fit:cover;}
+  .split h2{font-size:clamp(28px,3vw,38px);font-weight:700;margin-bottom:20px;}
+  .split p{font-size:16px;margin-bottom:16px;}
+  .check-list{margin-top:22px;display:grid;gap:12px;}
+  .check-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--navy);font-weight:500;}
+  .check-list li svg{width:20px;height:20px;color:#fff;background:var(--blue);border-radius:50%;padding:4px;flex-shrink:0;margin-top:1px;}
+
+  .section-head{text-align:center;max-width:640px;margin:0 auto 60px;}
+  .section-head p{font-size:16px;margin-top:14px;}
+
+  .svc-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:70px 0;border-bottom:1px solid var(--line);}
+  .svc-row:last-child{border-bottom:0;}
+  .svc-row.rev .svc-media{order:2;}
+  .svc-row .svc-media img{border-radius:var(--radius-lg);box-shadow:var(--shadow);width:100%;aspect-ratio:6/5;object-fit:cover;}
+  .svc-row .num-badge{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;font-family:var(--ff-head);font-weight:700;font-size:14px;margin-bottom:18px;}
+  .svc-row h3{font-size:26px;margin-bottom:14px;}
+  .svc-row p{font-size:15.5px;margin-bottom:18px;}
+  .svc-row ul{display:grid;gap:10px;margin-bottom:24px;}
+  .svc-row ul li{font-size:14.5px;color:var(--navy);font-weight:500;display:flex;align-items:center;gap:10px;}
+  .svc-row ul li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cyan);flex-shrink:0;}
+
+  .alliance{position:relative;overflow:hidden;background:var(--navy);border-radius:var(--radius-lg);padding:60px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;min-height:320px;}
+  .alliance::before{content:"";position:absolute;inset:0;background:url('assets/container-lift.jpeg') center/cover no-repeat;opacity:.12;filter:brightness(0.92) saturate(0.95);mix-blend-mode:normal;}
+  .alliance::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg, rgba(15,42,74,.96) 25%, rgba(15,42,74,.78) 55%, rgba(15,42,74,.62) 100%);}
+  .alliance > *{position:relative;z-index:1;}
+  .alliance h3{color:#fff;font-size:26px;max-width:22ch;}
+  .alliance p{color:#c6d4e2;margin-top:12px;max-width:52ch;}
+
+  .cta-banner{background:linear-gradient(120deg, var(--blue) 0%, var(--navy) 100%);border-radius:var(--radius-lg);padding:64px 60px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;color:#fff;}
+  .cta-banner h3{color:#fff;font-size:28px;max-width:20ch;}
+  .cta-banner p{color:#d7e4f0;margin-top:10px;}
+
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
+  .contact-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px;box-shadow:var(--shadow);}
+  .contact-card .ico{width:48px;height:48px;border-radius:12px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .contact-card .ico svg{width:24px;height:24px;color:var(--blue);}
+  .contact-card h4{font-size:15px;margin-bottom:8px;}
+  .contact-card .v{font-size:15px;color:var(--navy);font-weight:500;}
+  .contact-list{display:grid;gap:20px;}
+
+  footer{background:var(--navy);color:#aebfd0;padding:70px 0 24px;margin-top:40px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1);}
+  footer .brand-foot img{height:36px;margin-bottom:18px;}
+  footer .brand-foot p{font-size:14px;max-width:30ch;color:#9fb2c4;}
+  footer h5{font-family:var(--ff-head);font-size:14.5px;color:#fff;margin-bottom:18px;font-weight:600;}
+  footer ul li{margin-bottom:12px;font-size:14px;}
+  footer ul li a:hover{color:var(--cyan);}
+  .social-row{display:flex;gap:10px;margin-top:20px;}
+  .social-row a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;}
+  .social-row a svg{width:16px;height:16px;}
+  .footer-bottom{display:flex;justify-content:space-between;padding-top:24px;font-size:13px;flex-wrap:wrap;gap:10px;}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;}}
+
+  @media (max-width: 980px){
+    nav.primary{display:none;}
+    .nav-toggle{display:flex;}
+    .nav-phone{display:none;}
+    .hero .wrap{grid-template-columns:1fr;padding-bottom:110px;}
+    .hero-media{order:-1;}
+    .feature-strip .wrap{grid-template-columns:1fr;transform:none;padding:20px;gap:24px;}
+    .feature{border-right:0;border-bottom:1px solid var(--line);padding:20px 10px;}
+    .feature:last-child{border-bottom:0;}
+    .split{grid-template-columns:1fr;gap:34px;}
+    .svc-row{grid-template-columns:1fr;gap:30px;}
+    .svc-row.rev .svc-media{order:0;}
+    .alliance{grid-template-columns:1fr;text-align:left;padding:40px;}
+    .cta-banner{padding:44px 30px;flex-direction:column;text-align:center;}
+    .contact-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:34px;}
+  }
+  @media (max-width: 560px){
+    .wrap{padding:0 20px;}
+    .footer-grid{grid-template-columns:1fr;}
+    .section{padding:20px 0 70px;}
+    .section.alt{padding:70px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="#top" class="brand"><img src="assets/LOGO-sin fondo.pngg" alt="CPAS — Servicios Logísticos CPAS 2018, C.A."></a>
+    <nav class="primary" id="primaryNav">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#infraestructura">Infraestructura</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-actions">
+      <span class="nav-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0212-954 0102
+      </span>
+      <a href="#contacto" class="btn btn-primary btn-sm">Solicitar cotización</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Agentes portuarios · Carga contenerizada</span>
+        <h1>Operador Portuario <span>Por Excelencia</span></h1>
+        <p class="lede">Somos especialistas en agenciamiento de buques, estiba, almacenaje y acarreo de carga contenerizada, respaldados por personal con amplia experiencia en los puertos de Venezuela.</p>
+        <div class="hero-cta">
+          <a href="#servicios" class="btn btn-primary">Saber más
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#contacto" class="btn btn-outline">Contáctanos</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/real-hero-sunset.jpeg" alt="Terminal portuaria de contenedores CPAS al atardecer">
+        <div class="float-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l8.42 8.42 8.42-8.42a5.4 5.4 0 0 0 0-7.65z"/></svg></div>
+          <div>
+            <b>MSC</b>
+            <span>Cliente aliado principal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-strip">
+    <div class="wrap reveal">
+      <div class="feature">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <div><h4>Atención a Tiempo</h4><p>Agenciamiento y despacho de buques dentro de los tiempos acordados.</p></div>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg></div>
+        <div><h4>Calidad y Seguridad</h4><p>Vigilancia y estándares de control en cada etapa del manejo de carga.</p></div>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div><h4>Soluciones a la Medida</h4><p>Personal calificado y maquinaria adecuada para cada tarea del cliente.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="nosotros">
+    <div class="wrap">
+      <div class="split reveal">
+        <img src="assets/ship-bow.jpeg" alt="Buque portacontenedores asistido por remolcador">
+        <div>
+          <span class="eyebrow">¿Por qué confiar en CPAS?</span>
+          <h2>Experiencia portuaria al servicio de las líneas navieras</h2>
+          <p>SERVICIOS LOGÍSTICOS CPAS 2018, C.A. es una empresa dedicada a la atención de buques que transportan carga contenerizada, prestando servicios como agentes portuarios, estibadores, almacenaje y acarreo, apoyados por un personal calificado con amplia experiencia en el sector marítimo.</p>
+          <p>Dicha experiencia se debe a la selección de nuestro personal, mezclando juventud calificada con personal de mucha trayectoria que ha trabajado con las mejores agencias navieras del país.</p>
+          <a href="#servicios" class="btn btn-primary btn-sm" style="margin-top:10px;">Saber más
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="servicios">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Nuestros</span>
+        <h2>Servicios</h2>
+        <p>Brindamos servicios de agenciamiento, estiba, almacenaje, despacho de carga, reparación de contenedores y acarreo, cubriendo cada eslabón de la cadena portuaria.</p>
+      </div>
+
+      <div class="svc-row reveal">
+        <div>
+          <span class="num-badge">01</span>
+          <h3>Agenciamiento de Buques y Estiba</h3>
+          <p>Gestionamos la atención de buques que transportan carga contenerizada, coordinando los procesos de embarque y descarga con personal experimentado.</p>
+          <ul>
+            <li>Agenciamiento de buques portacontenedores</li>
+            <li>Procesos de embarque / descarga</li>
+            <li>Estiba y desestiba de carga</li>
+          </ul>
+          <a href="#contacto" class="btn btn-outline btn-sm">Saber más
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="svc-media"><img src="assets/estiba.jpeg" alt="Estiba y desestiba de carga contenerizada en muelle CPAS"></div>
+      </div>
+
+      <div class="svc-row rev reveal">
+        <div>
+          <span class="num-badge">02</span>
+          <h3>Documentación y Almacenaje</h3>
+          <p>Control documentario completo y servicio de almacenaje seguro para carga general y contenedores llenos, con vigilancia permanente.</p>
+          <ul>
+            <li>Control documentario</li>
+            <li>Manejo y despacho de carga general</li>
+            <li>Almacenaje de contenedores llenos</li>
+            <li>Seguridad y vigilancia de la carga</li>
+          </ul>
+          <a href="#contacto" class="btn btn-outline btn-sm">Saber más
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="svc-media"><img src="assets/aerial-yard.jpeg" alt="Almacenaje y manejo de contenedores en patio"></div>
+      </div>
+
+      <div class="svc-row reveal">
+        <div>
+          <span class="num-badge">03</span>
+          <h3>Mantenimiento y Reparación</h3>
+          <p>Reparamos contenedores inoperativos y gestionamos la recolección de demoras de la línea naviera por devolución tardía de equipos.</p>
+          <ul>
+            <li>Reparación de contenedores inoperativos</li>
+            <li>Recolección de demoras de la línea naviera</li>
+            <li>Recepción de contenedores vacíos devueltos</li>
+          </ul>
+          <a href="#contacto" class="btn btn-outline btn-sm">Saber más
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="svc-media"><img src="assets/welder.jpeg" alt="Técnico CPAS realizando reparación de contenedor"></div>
+      </div>
+
+      <div class="svc-row rev reveal">
+        <div>
+          <span class="num-badge">04</span>
+          <h3>Transporte y Acarreo</h3>
+          <p>Contamos con las maquinarias y el personal adecuado para el acarreo de contenedores llenos y vacíos, dentro y fuera de la zona portuaria.</p>
+          <ul>
+            <li>Acarreo de contenedores llenos y vacíos</li>
+            <li>Flota de camiones y reach stackers</li>
+            <li>Cobertura dentro y fuera del puerto</li>
+          </ul>
+          <a href="#contacto" class="btn btn-outline btn-sm">Saber más
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="svc-media"><img src="assets/truck-cpas.jpeg" alt="Camión CPAS transportando contenedor"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="infraestructura">
+    <div class="wrap">
+      <div class="alliance reveal">
+        <div>
+          <span class="eyebrow" style="color:var(--cyan);">Punto fuerte</span>
+          <h3>Aliados de Mediterranean Shipping Company</h3>
+          <p>Como punto fuerte tenemos como cliente principal para el manejo de la carga a una de las principales líneas navieras del mundo: Mediterranean Shipping Company (MSC).</p>
+        </div>
+        <a href="#contacto" class="btn btn-white">Contáctanos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="split reveal">
+        <div>
+          <span class="eyebrow">Infraestructura</span>
+          <h2>Maquinaria y personal para cada tarea</h2>
+          <p>Contamos con las maquinarias y el personal adecuados para cada una de las tareas a realizar en patio y terminal, garantizando un manejo eficiente de la carga contenerizada.</p>
+          <ul class="check-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Reach stackers para patio y terminal</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Flota propia de camiones de carga</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Personal calificado y con experiencia</li>
+          </ul>
+        </div>
+        <img src="assets/reachstacker.jpeg" alt="Reach stacker CPAS en operación">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Nuestras instalaciones</span>
+        <h2>Un vistazo a nuestro patio</h2>
+        <p>Así operamos día a día en nuestro patio de contenedores.</p>
+      </div>
+      <div class="video-frame reveal">
+        <video autoplay muted loop playsinline preload="auto" poster="assets/aerial-yard.jpeg">
+          <source src="assets/cpas-01.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Filosofía de la empresa</span>
+        <h2 style="font-size:28px;font-weight:600;line-height:1.5;">"Nuestra filosofía siempre ha sido atender las necesidades del cliente según lo solicitado, proporcionando el valor agregado de la experiencia de nuestro personal trabajando en nuestros puertos venezolanos."</h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap reveal">
+      <div class="cta-banner">
+        <div>
+          <h3>Hablemos de su próxima operación</h3>
+          <p>Ponte en contacto con nosotros y te asesoraremos para encontrar la mejor solución logística para tu carga.</p>
+        </div>
+        <a href="#contacto" class="btn btn-white">Contáctanos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="contacto">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Contacto</span>
+        <h2>Información de contacto</h2>
+        <p>Se pueden poner en contacto con nosotros a través de los siguientes medios.</p>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="contact-list">
+          <div class="contact-card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <h4>TELÉFONOS</h4>
+            <a class="v" href="tel:+582129540102">0212-954 0102</a><br>
+            <a class="v" href="tel:+582129541025">0212-954 1025</a>
+          </div>
+          <div class="contact-card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <h4>OFICINAS PRINCIPALES</h4>
+            <span class="v">Av. Tamanaco, Edif. Torre Tamanaco, Piso 5, Ofic. 5-A, Sector El Rosal, Chacao, Edo. Miranda, Zona Postal 1060. Caracas – Venezuela.</span>
+          </div>
+        </div>
+        <div class="contact-card" style="display:flex;flex-direction:column;justify-content:center;">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 4l8 8 8-8"/></svg></div>
+          <h4>¿LISTO PARA COTIZAR?</h4>
+          <p style="color:var(--navy);font-weight:500;font-size:15px;margin-bottom:18px;">Escríbanos o llámenos directamente — con gusto revisamos los requerimientos de su carga.</p>
+          <a href="tel:+582129540102" class="btn btn-primary">Llamar ahora
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="brand-foot">
+        <img src="assets/cpas-logo.png" alt="CPAS">
+        <p>Servicios portuarios y transporte de carga contenerizada en los puertos de Venezuela.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.5 9H15V6.5h-1.5C11.6 6.5 10 8.1 10 10.5V12H8v2.5h2V21h2.5v-6.5H15l.5-2.5h-3v-1.5c0-.6.4-1 1-1z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V21H17V15c0-1.5-.03-3.4-2.08-3.4-2.08 0-2.4 1.62-2.4 3.3V21H9z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#infraestructura">Infraestructura</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="#servicios">Agenciamiento de buques</a></li>
+          <li><a href="#servicios">Estiba y desestiba</a></li>
+          <li><a href="#servicios">Almacenaje</a></li>
+          <li><a href="#servicios">Acarreo de contenedores</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="tel:+582129540102">0212-954 0102</a></li>
+          <li><a href="tel:+582129541025">0212-954 1025</a></li>
+          <li>Chacao, Edo. Miranda, Caracas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Servicios Logísticos CPAS 2018, C.A. — J-41325713-0</span>
+      <span>Todos los derechos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 30));
+
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('primaryNav');
+  toggle.addEventListener('click', () => {
+    const open = nav.style.display === 'flex';
+    nav.style.display = open ? 'none' : 'flex';
+    nav.style.cssText += open ? '' : 'position:fixed;top:0;left:0;right:0;bottom:0;flex-direction:column;justify-content:center;align-items:center;background:#fff;gap:30px;z-index:199;';
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { if (window.innerWidth <= 980) nav.style.display='none'; }));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
